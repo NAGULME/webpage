@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            background-image: url('https://res.cloudinary.com/dxi76chcp/image/upload/v1708083497/WhatsApp_Image_2024-02-16_at_17.07.29_qxmx4z.jpg');
+            background-position: center;
+            background-size: cover;
+            background-position:left;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            
+            
+          }
+          .login-container {
+            background-color: rgba(255, 255, 255, 0.5);;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            width: 100%;
+            text-align:center;
+            
+          }
+          .login-form {
+            display: none;
+          }
+          .login-form.active {
+            display: block;
+          }
+          .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+          }
+          .links {
+            margin-top: 10px;
+          }
+          .links a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 10px;
+          }
+         .logo{
+             color: rgb(51, 17, 242);
+                font-size:58px;
+
+            }
+            .logo:hover{
+                color: rgb(10, 34, 3);
+                transition: 0.3s;
+            
+         }
+    </style>
+</head>
+<body><div>
+    <h1 class="logo">N&M.academy</h1>
+    <h4>Start your consulting service with us</h4>
+    <p>Discover the world's best community of consulting provider</p>
+
+      </div>
+   <div class="login-container">
+    <h2>WELCOME TO N&M.academy</h2>
+    <div class="login-form buyer">
+        <h3>Buyer Login</h3>
+        <form id="buyerForm" onsubmit="submitForm(event, 'buyer')">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+    <div class="login-form seller">
+        <h3>Seller Login</h3>
+        <form id="sellerForm" onsubmit="submitForm(event, 'seller')">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+      <button class="btn buyer-btn" onclick="toggleLogin('buyer')">Buyer</button>
+      <button class="btn seller-btn" onclick="toggleLogin('seller')">Seller</button>
+      <div class="links">
+        <a href="#">Forgot Password?</a>
+        <a href="#">Sign Up</a>
+      </div>
+   </div>
+
+<script>
+    function toggleLogin(type) {
+      const buyerForm = document.querySelector('.login-form.buyer');
+      const sellerForm = document.querySelector('.login-form.seller');
+      
+      if (type === 'buyer') {
+        buyerForm.classList.add('active');
+        sellerForm.classList.remove('active');
+      } else if (type === 'seller') {
+        sellerForm.classList.add('active');
+        buyerForm.classList.remove('active');
+      }
+    }
+
+    function submitForm(event, type) {
+        event.preventDefault();
+        const email = document.querySelector(`.${type} input[type='email']`).value;
+        const password = document.querySelector(`.${type} input[type='password']`).value;
+        // Here you can perform further actions like sending the data to a server for validation
+        console.log(`Type: ${type}, Email: ${email}, Password: ${password}`);
+    }
+</script>
+
+</body>
+</html>
